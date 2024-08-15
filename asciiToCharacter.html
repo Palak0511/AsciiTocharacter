@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AsciiToCharacter</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #main {
+      background-color: #b5b35c;
+      color: #004953;
+      font-size: 2em;
+      font-family: "Playfair Display", serif;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    input {
+      border: 0;
+      outline: 0;
+      background-color: #ffffe0;
+      color: #004526;
+      font-size: 1em;
+    }
+
+    section:not(#main) {
+      width: min-content;
+      margin: 1em;
+    }
+  </style>
+  <body>
+    <section id="main">
+      <section>
+        Enter ASCII code value:
+        <input
+          id="get"
+          type="number"
+          onchange="{Change()}"
+          placeholder="0"
+          style="padding: 0.5em"
+        />
+      </section>
+      <section>
+        Corresponding value of character:
+        <input
+          id="put"
+          disabled
+          placeholder="0"
+          maxlength="3"
+          style="padding: 0.5em"
+        />
+      </section>
+    </section>
+  </body>
+  <script>
+    function Change() {
+      return (document.querySelector("#put").value = String.fromCharCode(
+        +document.querySelector("#get").value ));
+    }
+  </script>
+</html>
